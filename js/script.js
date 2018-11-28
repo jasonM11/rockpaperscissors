@@ -17,15 +17,30 @@ $("#shoot").click(function(){
         if(randomNumber<.3333) {
             
             computerChoice = "rock";
-        } else if (randomNumber>.3333&& randomNumber<.6666) {
+        } else if (randomNumber<.6666) {
             
             computerChoice = "paper";
-        } else if (randomNumber>.6666&& randomNumber<1){
+        } else if ( randomNumber<1){
             
             computerChoice = "scissors";
         }
         $("#computerChoice").text(computerChoice);
         
+        
+        if((computerChoice==='rock'&& userChoice==='paper')|| (computerChoice==='paper'&& userChoice==='scissors')|| (computerChoice==='scissors'&& userChoice==='rock')){
+            $('#result').html('User Wins');
+        }
+        else if (computerChoice===userChoice){ 
+            $('#result').html('Tie');
+        }
+        else if (userChoice!=='rock' && userChoice !== 'paper' && userChoice !== 'scissors'){
+            $('#result').html('Error');
+        }  
+        
+        else {
+            $('#result').html("Computer Wins")
+        }
+            
         
     
 });
